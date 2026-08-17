@@ -5,7 +5,7 @@ description: Use when the user wants to visually see a diagram of what's being w
 
 # Diagramming mental models (mermaid-lite)
 
-Tool: `ml` CLI, globally linked from `~/Projects/mermaid-lite` (local mermaid.live clone). The server auto-starts detached; diagrams open in the browser via xdg-open.
+Tool: `ml` CLI, globally linked from the mermaid-lite app bundled in this skill's `src/` folder (a local mermaid.live clone — see `src/README.md` for one-time install). The server auto-starts detached; diagrams open in the browser via xdg-open (macOS: `open`).
 
 ## Reviewing an existing diagram ("looking at the diagram for X")
 
@@ -15,7 +15,7 @@ Tool: `ml` CLI, globally linked from `~/Projects/mermaid-lite` (local mermaid.li
 
 ## Creating a diagram
 
-1. Write Mermaid source for the thing being discussed (usually `flowchart TB`/`LR`; `<br/>` in labels and subgraphs render 1:1). Syntax reference if unsure: `~/Projects/mermaid-lite/docs/mermaid/syntax/`.
+1. Write Mermaid source for the thing being discussed (usually `flowchart TB`/`LR`; `<br/>` in labels and subgraphs render 1:1). Syntax reference if unsure: https://mermaid.js.org/intro/syntax-reference.html.
 2. Decide temp vs project:
    - user said temp / scratch / quick / throwaway → **temp**
    - user said project / save / keep, or gave it a name → **project**
@@ -29,4 +29,4 @@ Tool: `ml` CLI, globally linked from `~/Projects/mermaid-lite` (local mermaid.li
 
 - `ml list` shows projects; `ml get "Name"` prints code; `ml render "Name" -o out.png` (or `.svg`) exports headlessly without a visible browser.
 - Always pass code via `-f` (or an explicit closing pipe): `ml create`/`ml set` with a silent open stdin hangs waiting for EOF.
-- If `ml` is missing or broken: `cd ~/Projects/mermaid-lite && npm install && npm run build && npm link`.
+- If `ml` is missing or broken: `cd <this skill>/src && npm install && npm run build && npm link` (details in `src/README.md`).

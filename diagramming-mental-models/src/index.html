@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>mermaid-lite</title>
+</head>
+<body>
+  <div id="app">
+    <header class="toolbar">
+      <button id="project-btn" class="tb-btn tb-project" title="Projects">…</button>
+      <button id="save-scratch" class="tb-btn" hidden title="Save this scratch diagram as a project">Save as project</button>
+      <div class="tb-sep"></div>
+      <button id="toggle-editor" class="tb-btn" title="Show/hide editor (Ctrl+B)">Code</button>
+      <div class="tb-sep"></div>
+      <label class="tb-check" title="Re-render as you type"><input type="checkbox" id="auto-render" checked /> Auto</label>
+      <button id="render-now" class="tb-btn" title="Render (Ctrl+Enter)">Render</button>
+      <div class="tb-sep"></div>
+      <select id="theme-select" class="tb-select" title="Mermaid theme (in-file config overrides)">
+        <option value="default">default</option>
+        <option value="dark">dark</option>
+        <option value="forest">forest</option>
+        <option value="neutral">neutral</option>
+        <option value="base">base</option>
+      </select>
+      <select id="sample-select" class="tb-select" title="Load a sample">
+        <option value="">samples…</option>
+      </select>
+      <div class="tb-spacer"></div>
+      <button id="add-note" class="tb-btn" title="Add a text box (click canvas to place, Esc to cancel)">+ Text</button>
+      <div class="tb-sep"></div>
+      <button id="zoom-out" class="tb-btn" title="Zoom out">−</button>
+      <button id="zoom-in" class="tb-btn" title="Zoom in">+</button>
+      <button id="zoom-fit" class="tb-btn" title="Fit to screen">Fit</button>
+      <div class="tb-sep"></div>
+      <button id="export-svg" class="tb-btn" title="Download SVG">SVG</button>
+      <button id="export-png" class="tb-btn" title="Download PNG (2×)">PNG</button>
+      <button id="copy-png" class="tb-btn" title="Copy diagram image to clipboard (fitted PNG)">Copy</button>
+    </header>
+    <main class="split">
+      <section id="editor-pane" class="editor-pane"></section>
+      <div id="divider" class="divider"></div>
+      <section id="canvas" class="canvas">
+        <div id="diagram" class="diagram"></div>
+        <div id="overlay" class="overlay"></div>
+      </section>
+    </main>
+    <footer id="error-bar" class="error-bar" hidden><pre id="error-text"></pre></footer>
+    <div id="project-popover" class="popover" hidden></div>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

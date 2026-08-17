@@ -1,0 +1,39 @@
+{
+  "name": "mermaid-lite",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "build": "tsc --noEmit && tsc -p tsconfig.server.json --noEmit && vite build",
+    "serve": "node server/index.ts",
+    "preview": "vite preview",
+    "verify": "node scripts/verify.mjs"
+  },
+  "dependencies": {
+    "@codemirror/commands": "^6.10.4",
+    "@codemirror/language": "^6.12.4",
+    "@codemirror/lint": "^6.9.7",
+    "@codemirror/state": "^6.7.1",
+    "@codemirror/view": "^6.43.7",
+    "@hono/node-server": "^2.0.12",
+    "@mermaid-js/layout-elk": "^0.2.2",
+    "@mermaid-js/layout-tidy-tree": "^0.2.2",
+    "@mermaid-js/mermaid-zenuml": "^0.2.3",
+    "codemirror": "^6.0.2",
+    "codemirror-lang-mermaid": "^0.5.0",
+    "hono": "^4.12.32",
+    "mermaid": "^11.16.0",
+    "svg-pan-zoom": "^3.6.2"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.2",
+    "@types/svg-pan-zoom": "^3.3.0",
+    "puppeteer-core": "^25.4.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.1.5"
+  },
+  "bin": {
+    "ml": "cli/ml.ts"
+  }
+}
