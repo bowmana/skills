@@ -15,6 +15,8 @@ Assume they are a skilled developer, but know almost nothing about our toolset o
 
 **Context:** If working in an isolated worktree, it should have been created via the `superpowers:using-git-worktrees` skill at execution time.
 
+**Inside a Herdr session** (`HERDR_ENV=1`), create that worktree with `herdr worktree create --branch <name> --base <ref>` rather than `git worktree add`. Herdr shells out to git either way, so the checkout is identical — but only the Herdr command opens a workspace on it, which is what makes the worktree and the agents inside it visible in the sidebar. A worktree made with plain `git worktree add` is listed by `herdr worktree list` with no `open_workspace_id`, meaning the user cannot see or reach it; adopt such a checkout with `herdr worktree open --branch <name>`. Worktree commands run from the repo parent workspace, not from a linked worktree.
+
 **Save plans to:** `docs/superpowers/plans/YYYY-MM-DD-<feature-name>.md`
 - (User preferences for plan location override this default)
 
