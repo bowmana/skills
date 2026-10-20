@@ -16,7 +16,7 @@ proj=${proj%/}; proj=${proj##*/}
 legacy_dir() { systemctl --user show claude-rc -p WorkingDirectory --value 2>/dev/null; }
 unit_of() { if [[ $(legacy_dir) == "$HOME/Projects/$1" ]]; then echo claude-rc; else echo "claude-rc@$1"; fi; }
 link() { journalctl --user -u "$(unit_of "$1")" --no-pager -o cat 2>/dev/null |
-	grep -o 'https://claude.ai/code?environment=[A-Za-z0-9_]*' | tail -1; }
+	{ grep -o 'https://claude.ai/code?environment=[A-Za-z0-9_]*' || true; } | tail -1; }
 
 write_template() {
 	local claude; claude=$(command -v claude)
